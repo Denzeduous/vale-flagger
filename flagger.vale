@@ -1,7 +1,7 @@
 // NOTE(Alec):
 //     THIS IS BORKED!
 // 
-//     When building, you will get a scary census error!
+//     When building, you will get a big, scary error!
 //     Let's just wait for Verdagon to fix that...
 
 
@@ -270,30 +270,32 @@ fn parse_flag(args Array<imm, str>, flag_type int, i &int) ParsedFlag {
 }
 
 // This is just for testing.
-//fn main(args Array<imm, str>) export {
-//    flags = [
-//        Flag("--foo", 0, "The foo flag does nothing and is just for testing.", "Does nothing.", "flagger --foo"),
-//        Flag("--bar", 1, "The bar flag does nothing and is just for testing.", "Does nothing.", "flagger --bar 0"),
-//        Flag("--baz", 2, "The baz flag does nothing and is just for testing.", "Does nothing.", "flagger --baz \"string\"")
-//    ];
-//
-//    parsed_flags = parse_all_flags(&flags, args);
-//
-//    if (len(parsed_flags.parsed_flags) > 0) {
-//        println("Valid Flags:");
-//
-//        parsed_flags.parsed_flags.each((flag){
-//            println("Flag name: " + flag.name);
-//            //println("Flag value: " + str(flag.val));
-//            println("");
-//        });
-//    }
-//
-//    if (len(parsed_flags.invalid_flags) > 0) {
-//        println("Invalid Flags:");
-//
-//        parsed_flags.invalid_flags.each((flag){
-//            println(flag);
-//        });
-//    }
-//}
+fn main(args Array<imm, str>) export {
+    flags = [
+        Flag("--foo", 0, "The foo flag does nothing and is just for testing.", "Does nothing.", "flagger --foo"),
+        Flag("--bar", 1, "The bar flag does nothing and is just for testing.", "Does nothing.", "flagger --bar 0"),
+        Flag("--baz", 2, "The baz flag does nothing and is just for testing.", "Does nothing.", "flagger --baz \"string\"")
+    ];
+
+    parsed_flags = parse_all_flags(&flags, args);
+
+    if (len(parsed_flags.parsed_flags) > 0) {
+        println("Valid Flags:");
+
+        parsed_flags.parsed_flags.each((flag){
+            println("Flag name: " + flag.name);
+            //println("Flag value: " + str(flag.val));
+            println("");
+        });
+    }
+
+    if (len(parsed_flags.invalid_flags) > 0) {
+        println("Invalid Flags:");
+
+        parsed_flags.invalid_flags.each((flag){
+            println(flag);
+        });
+    }
+}
+
+fn main () export {}
