@@ -1,0 +1,6 @@
+name = "flagger"
+version = "0.1.0"
+vale_version = "0.1.1"
+author = "Alec Sanchez"
+git = "https://github.com/f0x1fy/vale-flagger"
+readme = "README.md"
